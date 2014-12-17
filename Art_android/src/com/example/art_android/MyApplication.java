@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.ContentValues;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Handler;
+import android.support.v4.util.LruCache;
 import android.util.Log;
 
 import java.lang.ref.SoftReference;
@@ -30,10 +32,9 @@ public class MyApplication extends Application {
 	private HashMap<String, SoftReference<Object>> cache = new HashMap<String, SoftReference<Object>>(5);
 	/// 参数缓存，用于缓存一些全局变量
 	private ContentValues paramCache = new ContentValues();
-	/// 全局handler
-	private Handler handler = new Handler();
 	/// 应用程序全局实例
 	private static MyApplication instance;
+    private LruCache<String, Bitmap> mLruCache;
 	
 	/**
 	 * @brief 加载启动时初始化CrashHandler
@@ -43,6 +44,18 @@ public class MyApplication extends Application {
 		super.onCreate();
 		Log.i(TAG, "onCreate");
 		instance = this;
+        // 获取我们应用的最大可用内存
+        int maxMemory = (int) Runtime.getRuntime().maxMemory();
+        int cacheMemory = maxMemory / 8;
+        mLruCache = new LruCache<String, Bitmap>(cacheMemory)
+        {
+            @Override
+            protected int sizeOf(String key, Bitmap value)
+            {
+                return value.getRowBytes() * value.getHeight();
+            }
+
+        };
 	}
 	
     @Override
@@ -67,7 +80,9 @@ public class MyApplication extends Application {
     	}
 		return instance;
     }
-    
+     public   LruCache<String, Bitmap> getmLruCache(){
+         return  mLruCache;
+     }
 	/**
      * @brief 添加Activity到容器中
      * @param activity 页面对象 

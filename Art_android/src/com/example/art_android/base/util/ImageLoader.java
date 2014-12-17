@@ -10,7 +10,7 @@ import android.os.Message;
 import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.widget.ImageView;
-import com.zhy.utils.ImageSizeUtil.ImageSize;
+import com.example.art_android.MyApplication;
 
 import java.io.File;
 import java.security.MessageDigest;
@@ -84,19 +84,19 @@ public class ImageLoader
 	{
 		initBackThread();
 
-		// 获取我们应用的最大可用内存
-		int maxMemory = (int) Runtime.getRuntime().maxMemory();
-		int cacheMemory = maxMemory / 8;
-		mLruCache = new LruCache<String, Bitmap>(cacheMemory)
-		{
-			@Override
-			protected int sizeOf(String key, Bitmap value)
-			{
-				return value.getRowBytes() * value.getHeight();
-			}
-
-		};
-
+//		// 获取我们应用的最大可用内存
+//		int maxMemory = (int) Runtime.getRuntime().maxMemory();
+//		int cacheMemory = maxMemory / 8;
+//		mLruCache = new LruCache<String, Bitmap>(cacheMemory)
+//		{
+//			@Override
+//			protected int sizeOf(String key, Bitmap value)
+//			{
+//				return value.getRowBytes() * value.getHeight();
+//			}
+//
+//		};
+        mLruCache = MyApplication.getInstance().getmLruCache();
 		// 创建线程池
 		mThreadPool = Executors.newFixedThreadPool(threadCount);
 		mTaskQueue = new LinkedList<Runnable>();
@@ -283,7 +283,7 @@ public class ImageLoader
 		// 加载图片
 		// 图片的压缩
 		// 1、获得图片需要显示的大小
-		ImageSize imageSize = ImageSizeUtil.getImageViewSize(imageView);
+		ImageSizeUtil.ImageSize imageSize = ImageSizeUtil.getImageViewSize(imageView);
 		// 2、压缩图片
 		bm = decodeSampledBitmapFromPath(path, imageSize.width,
 				imageSize.height);
