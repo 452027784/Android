@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent_background">#50000000</color>
+    <color name="translucent_search_background">#9000</color>
+    <color name="transparent">#000000ff</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#ffccddff</color>
+    <color name="red">#ffff0101</color>
+</resources>

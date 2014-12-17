@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Art_android</string>
+    <!-- MainActivity底部菜单-->
+    <string name="first_tab_host">云美术馆</string>
+    <string name="second_tab_host">热点资讯</string>
+    <string name="three_tab_host">艺术家</string>
+    <string name="four_tab_host">个人中心</string>
+</resources>
