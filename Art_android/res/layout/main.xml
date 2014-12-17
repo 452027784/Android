@@ -37,14 +37,14 @@
                     >
 
                 <RadioButton
-                        android:id="@+id/main_tab_addExam"
+                        android:id="@+id/first_radio_btn"
                         style="@style/MMTabButton"
                         android:layout_weight="1.0"
                         android:drawableTop="@drawable/ic_launcher"
                         android:text="@string/first_tab_host" />
 
                 <RadioButton
-                        android:id="@+id/main_tab_myExam"
+                        android:id="@+id/second_radio_btn"
                         style="@style/MMTabButton"
                         android:layout_weight="1.0"
                         android:checked="true"
@@ -52,14 +52,14 @@
                         android:text="@string/second_tab_host" />
 
                 <RadioButton
-                        android:id="@+id/main_tab_message"
+                        android:id="@+id/three_radio_btn"
                         style="@style/MMTabButton"
                         android:layout_weight="1.0"
                         android:drawableTop="@drawable/ic_launcher"
                         android:text="@string/three_tab_host" />
 
                 <RadioButton
-                        android:id="@+id/main_tab_settings"
+                        android:id="@+id/four_radio_btn"
                         style="@style/MMTabButton"
                         android:layout_weight="1.0"
                         android:drawableTop="@drawable/ic_launcher"

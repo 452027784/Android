@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
 import android.widget.ImageView;
-import com.zhy.utils.ImageSizeUtil.ImageSize;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -75,7 +74,7 @@ public class DownloadImgUtils
 	 * 根据url下载图片在指定的文件
 	 * 
 	 * @param urlStr
-	 * @param file
+	 * @param
 	 * @return
 	 */
 	public static Bitmap downloadImgByUrl(String urlStr, ImageView imageview)
@@ -94,7 +93,7 @@ public class DownloadImgUtils
 			Bitmap bitmap = BitmapFactory.decodeStream(is, null, opts);
 			
 			//获取imageview想要显示的宽和高
-			ImageSize imageViewSize = ImageSizeUtil.getImageViewSize(imageview);
+			ImageSizeUtil.ImageSize imageViewSize = ImageSizeUtil.getImageViewSize(imageview);
 			opts.inSampleSize = ImageSizeUtil.caculateInSampleSize(opts,
 					imageViewSize.width, imageViewSize.height);
 			

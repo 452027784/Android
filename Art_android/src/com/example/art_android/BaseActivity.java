@@ -1,6 +1,5 @@
 package com.example.art_android;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.InputType;
@@ -9,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import roboguice.activity.RoboActivity;
 
 import java.lang.reflect.Method;
 
@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
  * @author guanghua.xiao
  * @date 2013-7-25 下午4:33:42
  */
-public abstract class BaseActivity extends Activity {
+public  class BaseActivity extends RoboActivity {
 
 
     private static final String TAG = BaseActivity.class.getSimpleName();

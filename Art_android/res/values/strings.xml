@@ -6,4 +6,10 @@
     <string name="second_tab_host">热点资讯</string>
     <string name="three_tab_host">艺术家</string>
     <string name="four_tab_host">个人中心</string>
+
+    <string name="common_prompt_dialog_title">提示</string>
+    <string name="common_confirm_btn_title">确定</string>
+    <string name="common_cancel_btn_title">取消</string>
+
+    <string name="common_image_iv_hint">［图片］</string>
 </resources>
